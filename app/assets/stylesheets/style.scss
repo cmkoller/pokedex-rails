@@ -1,0 +1,581 @@
+$red: red;
+$red-shadow: rgb(145,0,0);
+
+body {
+  background-color: black;
+  padding: 10px;
+}
+
+.modal a {
+  text-decoration: underline;
+}
+
+.red {
+  background-color: $red;
+}
+
+.pokedex-wrapper {
+  margin: 10px;
+  margin-bottom: 40px;
+  height: 550px;
+  position: relative;
+}
+
+.pokebutton,
+input.pokebutton {
+  position: relative;
+}
+
+.pokebutton:active {
+  top: 1px;
+  left: -1px;
+}
+
+/*
+======================
+POKEDEX HALVES
+======================
+*/
+
+$pokedex-half-width: 438px;
+
+$inset-black-line:
+  inset 0 0 0 1px $red-shadow,
+  inset 0 0 0 19px $red,
+  inset 0 0 0 20px $red-shadow;
+$short-box-shadow:
+  -1px 0px 0px rgb(145, 0, 0),
+  -2px 2px 0px rgb(145, 0, 0),
+  -4px 4px 0px rgb(145, 0, 0),
+  -5px 6px 0px rgb(145, 0, 0),
+  -7px 8px 0px rgb(145, 0, 0),
+  -8px 10px 0px rgb(145, 0, 0);
+$long-box-shadow:
+  #{$short-box-shadow},
+  -10px 12px 0px rgb(145, 0, 0),
+  -11px 13px 0px rgb(0, 0, 0);
+
+.pokedex-wrapper > .half {
+  position: absolute;
+  float: none !important;
+  display: inline-block;
+  width: $pokedex-half-width;
+  height: 100%;
+  background-color: $red;
+  border-radius: 10px;
+}
+
+.left-area {
+  z-index: 1;
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  padding: 38px;
+  box-shadow:
+    #{$inset-black-line},
+    #{$long-box-shadow};
+}
+
+/*
+====================
+LEFT CONTENT AREA
+====================
+*/
+
+$left-content-width: $pokedex-half-width - 78px;
+
+.left-content {
+  width: $left-content-width;
+  position: absolute;
+  bottom: 36px;
+  left: 36px;
+}
+
+// ------------------
+// SCREEN AREA
+// ------------------
+
+.screen-area {
+  border-radius: .75rem;
+  position: relative;
+  margin-bottom: 10px;
+
+
+  $grey-color: #aaa;
+  $grey-shadow-color: #666;
+
+  &.screen-area-dropback {
+    background-color: $grey-shadow-color;
+    background:
+    linear-gradient(45deg, transparent 25px, $grey-shadow-color 0) bottom left;
+  }
+
+  &.screen-area-main {
+    background-color: $grey-color;
+    padding: 0 1.9375rem 0.9375rem 1.9375rem;
+    background: linear-gradient(45deg,  transparent 25px, $grey-color 0) bottom left;
+    left: 3px;
+    bottom: 4px;
+  }
+
+  .screen {
+    background-color: white;
+    margin-bottom: .75rem;
+    border-radius: .5rem;
+    padding: 0.9375rem;
+    box-shadow: 0 0 1px black inset, 1px -1px $grey-shadow-color;
+    height: 170px;
+    text-align: center;
+  }
+
+  // ------------------
+  // SCREEN CONTENTS
+  // ------------------
+
+  img {
+    height: 100%;
+  }
+
+  // ------------------
+  // SCREEN DOODADS
+  // ------------------
+
+  .buttons {
+    text-align: center;
+  }
+
+  .tiny-button {
+    width: 8px;
+    height: 8px;
+    background-color: $red;
+    border-radius: 9px;
+    display: inline-block;
+    box-shadow: -1px 1px 0px rgb(173, 1, 1);
+  }
+
+  .row.screen-area-doodads {
+    margin-top: 10px;
+  }
+
+  input.post-screen-circle {
+    height: 24px;
+    width: 24px;
+    border-radius: 30px;
+    background-color: $red;
+    box-shadow: -2px 2px 0px rgb(173, 1, 1);
+    border: 0px solid black;
+    margin-top: 4px;
+    margin-left: 10px;
+
+    &:active {
+      background-color: rgb(230,0,0);
+      box-shadow: -1px 1px 0 rgb(173, 1, 1);
+    }
+  }
+
+  .screen-lines {
+    width: 120px;
+
+    hr {
+      border-top: 2px solid black;
+      margin: 4px 0;
+    }
+  }
+
+}
+
+// ------------------
+// POST-SCREEN AREA
+// ------------------
+
+.post-screen {
+  padding: 0;
+  padding-left: 10px;
+
+  input.blue-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    background-color: rgb(86, 86, 242);
+    box-shadow: -2px 2px 0 rgb(51, 51, 153);
+    display: inline-block;
+    margin-right: 5px;
+    border: 0px solid black;
+
+    &:active {
+      background-color: rgb(72,72,208);
+      box-shadow: -1px 1px 0 rgb(24,24,81);
+    }
+  }
+
+  .skinny-button {
+    width: 70px;
+    height: 20px;
+    border-radius: 20px;
+    display: inline-block;
+    margin-right: 5px;
+    margin-top: -5px;
+    vertical-align: super;
+
+
+    &.green-button {
+      $green-shadow-color: rgb(0, 126, 0);
+      background-color: lime;
+      box-shadow: -2px 2px 0 $green-shadow-color;
+
+      &:active {
+        background-color: rgb(0,229,0);
+        box-shadow: -1px 1px 0 $green-shadow-color;
+      }
+    }
+
+    &.red-button {
+      background-color: tomato;
+      box-shadow: -2px 2px 0 rgb(150, 57, 40);
+
+      &:active {
+        background-color: rgb(223, 83, 58);
+        box-shadow: -1px 1px 0 rgb(150, 57, 40);
+      }
+    }
+  }
+
+  input.yellow-text-area,
+  input.yellow-text-area:focus {
+    width: 150px;
+    height: 60px;
+    background-color: yellow;
+    border-radius: 10px;
+    -webkit-box-shadow: 1px -1px #666;
+    box-shadow: 1px -1px #666;
+    margin: auto;
+    margin-top: 15px;
+    border-color: transparent;
+    transition: none;
+    text-align: center;
+    font-size: 1.45rem;
+  }
+}
+
+// ------------------
+// D-PAD
+// ------------------
+
+.cross-wrapper {
+  position: relative;
+  margin-top: 10px;
+  z-index: 1;
+
+  .cross,
+  .cross-main {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+  }
+
+
+  .cross {
+
+    &:before, &:after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+    }
+
+    &:before {
+      left: 50%;
+      width: 30%;
+      margin-left: -15%;
+      height: 100%;
+    }
+
+    &:after {
+      top: 50%;
+      height: 30%;
+      margin-top: -15%;
+      width: 100%;
+    }
+  }
+  .cross-shadow {
+    &:before, &:after {
+      background: #113232;
+    }
+  }
+
+  .cross-main {
+    top: -3px;
+    left: 18px;
+
+    &:before, &:after {
+      background: #04746D;
+    }
+
+    div {
+      position: absolute;
+      background-color: #04746D;
+    }
+
+    .vertical {
+      width: 30%;
+      height: 50%;
+      left: 35%;
+    }
+
+    .horizontal {
+      width: 50%;
+      height: 30%;
+      top: 35%;
+    }
+
+    .cross-top {
+      top: 0;
+
+      &:active {
+        transform: skewX(4deg);
+        left: calc(35% - 1px);
+      }
+    }
+    .cross-bottom {
+      bottom: 0;
+
+      &:active {
+        transform: skewX(-4deg);
+        left: calc(35% - 1px);
+      }
+    }
+    .cross-left {
+      left: 0;
+      &:active {
+        transform: skewY(-4deg);
+        top: calc(35% + 1px);
+      }
+    }
+    .cross-right {
+      right: 0;
+      &:active {
+        transform: skewY(4deg);
+        top: calc(35% + 1px);
+      }
+    }
+  }
+}
+
+/*
+====================
+CENTER JOINT
+====================
+*/
+
+.center-joint,
+.center-joint .half {
+  border-radius: 80px/30px;
+}
+
+.center-joint {
+  width: 55px;
+  height: 539px;
+  border: 1px solid $red-shadow;
+  position:relative;
+  left: calc(100% + 17px);
+  top: 82px;
+  left: calc(100% + 17px);
+  top: -12px;
+  z-index: 10;
+
+  .half {
+    width: 100%;
+    position: absolute;
+  }
+
+  .bottom {
+    height: 80%;
+    bottom: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-image:
+    /* Upper curve */
+    radial-gradient(265px at 50% calc(100% - 20px),
+    transparent 50px,
+    $red-shadow 51px,
+    transparent 52px ),
+    /* Lower curve */
+    radial-gradient(265px at 50% calc(100% - 50px),
+    transparent 50px,
+    $red-shadow 51px,
+    transparent 52px ),
+    /* Lowest shadow */
+    radial-gradient(265px at 50% calc(100% + 33px),
+    rgba(145,0,0,1) 50px,
+    transparent 52px ),
+    /* Vertical shading */
+    linear-gradient(90deg, rgb(190,0,0) 19%, $red 20%);
+  }
+
+  .top {
+    height: 20%;
+    top: 0;
+    border-bottom-left-radius:0;
+    border-bottom-right-radius:0;
+    background-image:
+    /* Lower curve */
+    radial-gradient(265px at 50% 100px,
+    transparent 50px,
+    $red-shadow 51px,
+    transparent 52px
+    ),
+    /* Upper curve */
+    radial-gradient(265px at 50% 130px,
+    transparent 50px,
+    $red-shadow 51px,
+    transparent 52px
+    ),
+    /* Vertical shading */
+    linear-gradient(90deg, rgb(190,0,0) 19%, $red 20%);
+  }
+}
+
+/*
+====================
+TOP AREA
+====================
+*/
+
+.top-wrapper,
+.top-wrapper .left-half {
+  border-top-left-radius: 10px;
+}
+
+.top-wrapper {
+  width: 471px;
+  height: 100px;
+  position: absolute;
+  top: 3px;
+  left: 0px;
+
+  .left-half {
+    width: 50%;
+    border-bottom-right-radius: 80px;
+    background-color: $red-shadow;
+    height: 100%;
+    border-bottom: 1px solid $red-shadow;
+    border-left: 1px solid $red-shadow;
+    border-bottom-right-radius: 149px 62px;
+  }
+
+  .right-half {
+    width: calc(50% + 9px);
+    position: absolute;
+    bottom: 0;
+    right: 6px;
+
+    &.curve {
+      height: calc(48% + 9px);
+      background-color: rgb(255,0,0);
+      border-top-left-radius: 98px 48px;
+      z-index: 1;
+      right: 10px;
+      bottom: 10px;
+      clip: rect(0px, 205px, 190px, 10px)
+    }
+
+    &.full {
+      height: 100%;
+      background-color: $red-shadow;
+      border-top-right-radius: 36px 13px;
+      clip: rect(0px, 248px, 59px, 0);
+    }
+  }
+
+  &.main-wrapper {
+    top: -10px;
+    left: 6px;
+    position: absolute;
+
+    .left-half {
+      background-color: rgb(255,0,0);
+      box-shadow: -1px 0px 0px rgb(145, 0, 0),
+      -2px 2px 0px rgb(145, 0, 0),
+      -4px 4px 0px rgb(145, 0, 0),
+      -5px 6px 0px rgb(145, 0, 0),
+      -7px 8px 0px rgb(145, 0, 0),
+      -8px 10px 0px rgb(145, 0, 0),
+      -10px 12px 0px rgb(145, 0, 0);
+    }
+    .right-half {
+      &.curve {
+        background-color: $red-shadow;
+        z-index:0;
+        clip: rect(0px, 222px, 37px, 0);
+      }
+      &.full {
+        background-color: rgb(255,0,0);
+      }
+    }
+  }
+}
+
+// ------------------
+// TOP-LEFT DOODADS
+// ------------------
+
+.left-area .top-wrapper {
+  .lights {
+    position: absolute;
+    top:0;
+    left:20px;
+
+    .light {
+      display: inline-block;
+      vertical-align: top;
+      border-radius: 50px;
+      border: 1px solid black;
+
+      &.large.shadow {
+        width: 75px;
+        height: 75px;
+        padding: 10px;
+        position: relative;
+        background-color: #fff;
+        border-color: $red-shadow;
+      }
+
+      &.large.main {
+        height: 60px;
+        width: 60px;
+        top: 4px;
+        left: 8px;
+        border-color: #06D5D8;
+        background-image:
+        radial-gradient(1px 2px at 12px 29px,
+        #D0F5F5 5px,
+        #09F7FA 6px);
+        transform: rotate(50deg);  position: absolute;
+      }
+
+      &.small {
+        width: 20px;
+        height: 20px;
+        margin: 0 4px;
+        background-image:
+          radial-gradient(2px 1px at 9px 4px,
+            rgba(255,255,255,.8) 3px,
+            transparent 5px);
+        transform: rotate(-30deg);
+
+        &.red {
+          background-color: $red;
+          border-color: rgb(155,0,0);
+        }
+
+        &.yellow {
+          background-color: yellow;
+          border-color: rgb(89, 89, 0);
+        }
+
+        &.green {
+          background-color: lime;
+          border-color: rgb(10, 155, 10);
+        }
+      }
+    }
+  }
+}
