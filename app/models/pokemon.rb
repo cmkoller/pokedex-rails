@@ -15,7 +15,7 @@ class Pokemon
 
   def self.search(id)
     if id
-      Pokemon.new(id)
+      Pokemon.new(id.to_i)
     end
   end
 
