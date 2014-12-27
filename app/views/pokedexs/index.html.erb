@@ -58,8 +58,7 @@
             <!-- Row containing doo-dads below main screen -->
             <div class="row screen-area-doodads">
               <div class="small-1 columns">
-                <form action="/" method="post">
-                  <input type="hidden" name="clear" value="true">
+                <form action="/" method="get">
                   <input type="submit" class="post-screen-circle pokebutton" value="">
                 </form>
               </div>
@@ -75,7 +74,7 @@
 
       <!-- Start Post-Screen Buttons column -->
       <div class="small-8 columns post-screen">
-        <form action="/" method="post">
+        <form action="/" method="get">
           <!-- Post-screen row of buttons -->
           <div class="row post-screen-buttons">
             <input type="submit" class="blue-button pokebutton" value="">
@@ -89,9 +88,10 @@
             id="poke_id" name="poke_id"
             required pattern="^[0-9]{0,3}$" maxlength="3"
             oninvalid="setCustomValidity('Please type a Pokemon\'s ID number ')"
+            oninput="setCustomValidity('')"
             onfocus="value=''"
             <% if @pokemon %>
-              <%= "value=\"#{@pokemon.id}\"" %>
+              <%= "value=#{@pokemon.id}" %>
             <% end %>
 
             />
