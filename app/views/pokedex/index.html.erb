@@ -87,11 +87,11 @@
           <div class="row post-screen-text-area">
             <input type="text" class="yellow-text-area"
             id="poke_id" name="poke_id"
-            required pattern="[0-9]{3}" maxlength="3"
-            oninvalid="setCustomValidity('Please type a Pokemon\'s number ')"
+            required pattern="^[0-9]{0,3}$" maxlength="3"
+            oninvalid="setCustomValidity('Please type a Pokemon\'s ID number ')"
             onfocus="value=''"
             <% if @pokemon %>
-            <%= "value=\"#{@pokemon.id}\"" %>
+              <%= "value=\"#{@pokemon.id}\"" %>
             <% end %>
 
             />
@@ -99,7 +99,7 @@
           <!-- End post-screen yellow text area -->
         </form>
       </div>
-      <!-- Start Post-Screen Buttons column -->
+      <!-- End Post-Screen Buttons column -->
       <!-- Start Post-Screen Direction pad column -->
       <div class="small-4 columns cross-wrapper">
         <div class="cross cross-shadow"></div>
@@ -110,12 +110,14 @@
           <div class="horizontal cross-right"></div>
         </div>
       </div>
-      <!-- Start Post-Screen Direction pad column -->
+      <!-- End Post-Screen Direction pad column -->
     </div>
+    <!-- Start center column -->
     <div class="center-joint">
       <div class="half bottom"></div>
       <div class="half top"></div>
     </div>
+    <!-- End center column -->
   </div>
   <!-- End Left Wrapper -->
 </div>
