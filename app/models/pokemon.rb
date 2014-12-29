@@ -14,8 +14,7 @@ class Pokemon
   end
 
   def self.search(id)
-    # binding.pry
-    if id.to_s.length == 3 && id.to_s =~ /^[0-9]{0,3}$/
+    if id.to_s.length <= 3 && id.to_s =~ /^[0-9]{0,3}$/
       Pokemon.new(id.to_i)
     end
   end
