@@ -51,7 +51,7 @@
             <!-- Actual screen -->
             <div class="row screen">
               <% if @pokemon %>
-                <img src="<%= @pokemon.image_url %>" alt="<%= @name %>">
+                <%= image_tag @pokemon.image_url, alt: @name %>
               <% end %>
             </div>
             <!-- End actual screen -->

@@ -9,7 +9,7 @@ class Pokemon
       @image_url = "http://img.pokemondb.net/sprites/black-white/anim/normal/#{@name.downcase}.gif"
     else
       @name = "MissingNo"
-      @image_url = "/assets/missingno.png"
+      @image_url = "missingno.png"
     end
   end
 
